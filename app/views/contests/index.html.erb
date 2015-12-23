@@ -1,0 +1,18 @@
+<% @title= 'Contests' %>
+
+
+<h1>Contests</h1>
+<% @contests.each do |post| %>
+
+    <%= link_to(contest.title, contest_path(contest)) %><br>
+    Date: <%= contest.created_at.strftime("%m/%d/%y") %><br>
+    By: <%= contest.user.username %><br>
+    <%= contest.excerpt %><br>
+    <%= link_to('Read More', contest_path(contest)) %>
+    <br>
+    <br>
+
+<% end %>
+<div class="pagination">
+  <%= will_paginate @contests, previous_label: "Newer", next_label: "Older", inner_window: 2, outer_window: 0 %>
+</div>
